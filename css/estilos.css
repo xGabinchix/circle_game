@@ -1,0 +1,104 @@
+*{
+	margin: 0;
+	padding: 0;
+}
+body{
+	background-color: #a2d2ff;
+	height: 100vh;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+.pantallaInicio, .pantallaPerdedor, .pantallaGanador, .pantallaGanadorFinal{
+	z-index: 2;
+	position: absolute;
+	width: 700px;
+	height: 700px;
+	background-color: black;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-around;
+	align-items: center;
+	font-family: 'Press Start 2P', cursive;
+}
+.pantallaPerdedor, .pantallaGanador, .pantallaGanadorFinal{
+	display: none;
+}
+.pantallaInicio p, .pantallaPerdedor p, .pantallaGanador p, .pantallaGanadorFinal p{
+	color: white;
+	text-align: center;
+	margin: 0px 20px;
+	font-size: 18px;
+}
+.pantallaInicio p:first-child, .pantallaPerdedor p:first-child, .pantallaGanador p:first-child, .pantallaGanadorFinal p:first-child{
+	margin-top: 20px;
+}
+.botonInicio, .botonPerdedor, .botonGanador, .botonGanadorFinal{
+	width: 200px;
+	height: 100px;
+	background-color: #bde0fe;
+	color: white;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+	margin-bottom: 20px;
+	cursor: pointer;
+	border-color: #bde0fe;
+	border-radius: 50px;
+}
+.tablero{
+	width:600px;
+	padding: 10px;
+	border: 5px solid white;
+	background-color: #bde0fe;
+	display: flex;
+	justify-content: space-between;
+	flex-wrap: wrap;
+}
+.circulo{ /*es cada uno de los círculos dentro del tablero*/
+	height: 130px;
+	width: 130px;
+	border-radius: 50%;
+	background-color: white;
+	margin: 10px 0px;
+	cursor: pointer;
+}
+.invisible{ /*es la clase que se agregará al hacerle click para que desaparezcab */
+	opacity: 0;
+	animation: eliminar 0.2s;
+	pointer-events: none;
+}
+.timer{ /*es el timer (la barra) debajo del trablero*/
+	width: 600px;
+	padding: 10px;
+	background-color: #bde0fe;
+	border: 5px solid white;
+	display: flex;
+	height: 10px;
+	margin-top: 20px;
+}
+.timer div{ /*es la barra blanca del timer, irá disminuyendo con el paso del tiempo*/
+	margin: 0px 5px;
+	background-color: white;
+}
+
+@keyframes eliminar{ /*todas las propiedades a modificarse con la animación deben aparecer en todos los keyframes (en este caso, transform y opacity)*/
+	0%{
+		transform: scale(1);
+		opacity: 1;
+	}
+	10%{
+		transform: scale(1.2);
+		opacity: 1;
+	}
+	98%{
+		transform: scale(0.01);
+		opacity: 1;
+	}
+	100%{
+		transform: scale(0.01);
+		opacity: 0;
+	}
+}
